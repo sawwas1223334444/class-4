@@ -1,6 +1,6 @@
 <?php
 
-require_once '511.php';
+require_once 'Rectangle.php';
 
 $rectangle = new Rectangle(5.0, 3.0);
 
