@@ -1,8 +1,8 @@
 <?php
 
-require_once 'Animals.php';
+require_once 'Animal.php';
 require_once 'Dog.php';
-require_once 'cat.php';
+require_once 'Cat.php';
 require_once 'Zoo.php';
 
 
@@ -21,5 +21,5 @@ $zoo->addAnimal($cat2);
 $zoo->listAnimals();
 echo "\n";
 
- 
+
 $zoo->animalSounds();
