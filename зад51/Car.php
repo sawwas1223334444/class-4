@@ -1,12 +1,14 @@
 <?php
 
-class Car {
+class Car
+{
     public string $mark;
     public string $model;
     public int $year;
-    public int $mileage; 
+    public int $mileage;
 
-    public function __construct(string $mark, string $model, int $year, int $mileage) {
+    public function __construct(string $mark, string $model, int $year, int $mileage)
+    {
 
         if ($mileage < 0) {
             throw new InvalidArgumentException("Пробег не может быть отрицательным!");
@@ -18,11 +20,13 @@ class Car {
         $this->mileage = $mileage;
     }
 
-    public function getInfo(): string {
+    public function getInfo(): string
+    {
         return "Машина: $this->mark $this->model, год выпуска: $this->year, пробег: $this->mileage км" . PHP_EOL;
     }
 
-    public function drive(int $distance): void {
+    public function drive(int $distance): void
+    {
         if ($distance <= 0) {
             throw new InvalidArgumentException("Дистанция должна быть положительной!");
         }
@@ -31,7 +35,8 @@ class Car {
         echo "Добавлено $distance км. Текущий пробег: $this->mileage км" . PHP_EOL;
     }
 
-    public function getMileage(): int {
+    public function getMileage(): int
+    {
         return $this->mileage;
     }
-} 
+}
