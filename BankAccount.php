@@ -1,30 +1,27 @@
 <?php
 
-class InvalidAmountException extends Exception {}
-class NotEnoughMoneyException extends Exception {}
-
 class BankAccount {
-    private $balance;
+    private float $balance;
 
-    public function __construct($startBalance) {
+    public function __construct(float $startBalance) {
         if ($startBalance < 0) {
             $this->error("Начальный баланс не может быть отрицательным", 'InvalidAmount');
         }
         $this->balance = $startBalance;
     }
 
-    public function getBalance() {
+    public function getBalance(): float {
         return $this->balance;
     }
 
-    public function deposit($amount) {
+    public function deposit(float $amount): void {
         if ($amount <= 0) {
             $this->error("Сумма должна быть больше нуля", 'InvalidAmount');
         }
         $this->balance += $amount;
     }
 
-    public function withdraw($amount) {
+    public function withdraw(float $amount): void {
         if ($amount <= 0) {
             $this->error("Сумма должна быть больше нуля", 'InvalidAmount');
         }
@@ -34,7 +31,7 @@ class BankAccount {
         $this->balance -= $amount;
     }
 
-    private function error($message, $type) {
+    private function error(string $message, string $type): void {
         if ($type === 'InvalidAmount') {
             throw new InvalidAmountException($message);
         } else {

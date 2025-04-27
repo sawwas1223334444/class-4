@@ -1,14 +1,15 @@
 <?php
+
+require_once 'InvalidAmountException.php';
+require_once 'NotEnoughMoneyException.php';
 require_once 'BankAccount.php';
 
-function readInput($prompt)
-{
+function readInput(string $prompt): string {
     echo $prompt;
     return trim(fgets(STDIN));
 }
 
-function handleOperation($account)
-{
+function handleOperation(BankAccount $account): void {
     while (true) {
         echo "\nТекущий баланс: " . $account->getBalance() . "\n";
         echo "1. Пополнить счет\n";
@@ -18,17 +19,17 @@ function handleOperation($account)
 
         try {
             switch ($choice) {
-                case 1:
-                    $amount = readInput("Введите сумму для пополнения: ");
+                case '1':
+                    $amount = (float)readInput("Введите сумму для пополнения: ");
                     $account->deposit($amount);
                     echo "Счет пополнен на $amount\n";
                     break;
-                case 2:
-                    $amount = readInput("Введите сумму для снятия: ");
+                case '2':
+                    $amount = (float)readInput("Введите сумму для снятия: ");
                     $account->withdraw($amount);
                     echo "Со счета снято $amount\n";
                     break;
-                case 3:
+                case '3':
                     return;
                 default:
                     echo "Неверный выбор. Попробуйте снова.\n";
@@ -44,7 +45,7 @@ function handleOperation($account)
 echo "--- Банковский счет ---\n";
 
 try {
-    $initialBalance = readInput("Введите начальный баланс: ");
+    $initialBalance = (float)readInput("Введите начальный баланс: ");
     $account = new BankAccount($initialBalance);
     handleOperation($account);
 } catch (InvalidAmountException $e) {
