@@ -1,0 +1,16 @@
+{
+    "name": "karina/repo",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Karina\\Repo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "karina",
+            "email": "skarina.021007@gmail.com"
+        }
+    ],
+    "require": {}
+}

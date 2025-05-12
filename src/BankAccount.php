@@ -1,5 +1,7 @@
 <?php
 
+namespace Karina\Repo;
+
 class BankAccount {
     private float $balance;
 

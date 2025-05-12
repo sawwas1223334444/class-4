@@ -1,8 +1,10 @@
 <?php
 
-require_once 'InvalidAmountException.php';
-require_once 'NotEnoughMoneyException.php';
-require_once 'BankAccount.php';
+require __DIR__ . '/vendor/autoload.php';
+
+use Karina\Repo\BankAccount;
+use Karina\Repo\InvalidAmountException;
+use Karina\Repo\NotEnoughMoneyException;
 
 function readInput(string $prompt): string {
     echo $prompt;
