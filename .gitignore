@@ -1,0 +1,11 @@
+# Игнорировать зависимости Composer
+vendor/
+
+# Системные файлы
+.env
+.idea/
+*.log
+*.cache
+
+# Автогенерируемые файлы
+.phpunit.result.cache
