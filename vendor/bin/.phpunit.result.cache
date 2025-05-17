@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"Karina\\Repo\\Tests\\BankAccountTest::testInsufficientFundsException":0.004,"Karina\\Repo\\Tests\\BankAccountTest::testInvalidAmountException":0,"Karina\\Repo\\Tests\\BankAccountTest::testDeposit":0,"Karina\\Repo\\Tests\\BankAccountTest::testWithdraw":0}}

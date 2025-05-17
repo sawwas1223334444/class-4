@@ -7,7 +7,7 @@ class BankAccount {
 
     public function __construct(float $startBalance) {
         if ($startBalance < 0) {
-            $this->error("Начальный баланс не может быть отрицательным", 'InvalidAmount');
+            throw new InvalidAmountException("Initial balance cannot be negative");
         }
         $this->balance = $startBalance;
     }
@@ -18,26 +18,18 @@ class BankAccount {
 
     public function deposit(float $amount): void {
         if ($amount <= 0) {
-            $this->error("Сумма должна быть больше нуля", 'InvalidAmount');
+            throw new InvalidAmountException("Amount must be positive");
         }
         $this->balance += $amount;
     }
 
     public function withdraw(float $amount): void {
         if ($amount <= 0) {
-            $this->error("Сумма должна быть больше нуля", 'InvalidAmount');
+            throw new InvalidAmountException("Amount must be positive");
         }
         if ($amount > $this->balance) {
-            $this->error("Недостаточно средств на счете", 'NotEnough');
+            throw new InsufficientFundsException("Not enough funds");
         }
         $this->balance -= $amount;
-    }
-
-    private function error(string $message, string $type): void {
-        if ($type === 'InvalidAmount') {
-            throw new InvalidAmountException($message);
-        } else {
-            throw new NotEnoughMoneyException($message);
-        }
     }
 }

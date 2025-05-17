@@ -4,7 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Karina\Repo\BankAccount;
 use Karina\Repo\InvalidAmountException;
-use Karina\Repo\NotEnoughMoneyException;
+use Karina\Repo\InsufficientFundsException;
 
 function readInput(string $prompt): string {
     echo $prompt;
@@ -38,7 +38,7 @@ function handleOperation(BankAccount $account): void {
             }
         } catch (InvalidAmountException $e) {
             echo "Ошибка: " . $e->getMessage() . "\n";
-        } catch (NotEnoughMoneyException $e) {
+        } catch (InsufficientFundsException $e) {
             echo "Ошибка: " . $e->getMessage() . "\n";
         }
     }
