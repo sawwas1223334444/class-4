@@ -9,3 +9,4 @@ vendor/
 
 # Автогенерируемые файлы
 .phpunit.result.cachecomposer.lock
+composer.lock
