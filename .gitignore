@@ -8,4 +8,4 @@ vendor/
 *.cache
 
 # Автогенерируемые файлы
-.phpunit.result.cache
+.phpunit.result.cachecomposer.lock
